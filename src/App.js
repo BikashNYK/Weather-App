@@ -20,7 +20,7 @@ function App() {
     // https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8ceb190ec7d2e7450b4d24a84d9e057e
 // https://api.openweathermap.org/data/2.5/weather?q=asansol&appid=477b0577b454816f45f8516126ea4bb8
     try {
-      let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=477b0577b454816f45f8516126ea4bb8`)
+      let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityText}&appid=8ceb190ec7d2e7450b4d24a84d9e057e`)
       console.log(response)
       // console.log(response.data.main.humidity);
       // console.log(response.data.main.temp);
