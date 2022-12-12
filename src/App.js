@@ -10,6 +10,7 @@ function App() {
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   const [winSpeed, setWinSpeed] = useState(0);
+  const [skyValue,setSkyValue]=useState('');
 
 
   const[cityText,setCityText]=useState("")
@@ -24,11 +25,15 @@ function App() {
       console.log(response)
       // console.log(response.data.main.humidity);
       // console.log(response.data.main.temp);
-      setTemp(response.data.main.temp)
+      setTemp(Math.round(response.data.main.temp-273))
+      // setMaxTemp(Math.round(response.data.main.temp_max-273))
+      // setMinTemp(Math.round(response.data.main.temp_min-273))
       setHumidity(response.data.main.humidity)
       setLatitude(response.data.coord.lat)
       setLongitude(response.data.coord.lon)
       setWinSpeed(response.data.wind.speed)
+      setSkyValue(response.data.weather[0].main)
+      // console.log(response.data.weather[0].main);
     } catch (error) {
       console.log(error);
     }
@@ -48,12 +53,12 @@ function App() {
       </div>
 
       <div className='box'>
-        <h3>Temp : {temp} F</h3>
+        <h3>Temp : {temp} C</h3>
         <h3>Humidity : {humidity}%</h3>
         <h3>Latitude : {latitude}</h3>
         <h3>Longitude : {longitude}</h3>
         <h3>Wind Speed : {winSpeed}</h3>
-
+        <h3>Weather : {skyValue}</h3>
       </div>
     </div>
   );
